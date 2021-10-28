@@ -1,0 +1,2 @@
+# Spectral-Analysis-Data-Conversion
+This is a brief program I created in order to aid data analysis for my Methods in Scientific Inqiry course project. It calculates concentration of E. coli and turbidity level of a given sample from its spectrophotometer absorption value. This program is meant to be utilized alongside the Vernier Spectral Analysis software by saving a large amount of data points, then inputting the file to this program in order to obtain one file with correponding E. coli concentration values and one with corresponding turbidity values.
