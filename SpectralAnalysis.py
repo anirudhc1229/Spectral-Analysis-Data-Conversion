@@ -1,5 +1,7 @@
+SOL_NUM = input("Enter solution #: ")
+
 def getAbsorptions():
-    with open("absorptions.txt", 'r') as f:
+    with open("Data/absorptions" + SOL_NUM + ".txt", 'r') as f:
         return [float(A.strip()) for A in f]
 
 def beerLambertConcentration(A): 
@@ -14,23 +16,25 @@ def beerLambertConcentration(A):
     return c # M
 
 def turbidityConversion(A):
+    # wavelength of spectrophotometer light while measuring samples
+    WAVELENGTH = 600 # nm
     # optical path length (width of cuvette)
     l = 1 # cm
-    # turbidity of solution
-    T = (2.3 * A) / l
+    # turbidity of solution (SCALED)
+    T = ((2.3 * A) / l) * 10
     return T # NTU
 
 def output(data, ch):
     file = ""
     units = " "
     if ch == 'c':
-        file = "concentrations.txt"
+        file = "Data/concentrations" + SOL_NUM + ".txt"
         units += "M"
     if ch == 't':
-        file = "turbidities.txt"
+        file = "Data/turbidities" + SOL_NUM + ".txt"
         units += "NTU"
     with open(file, 'w') as f:
-        f.write('\n'.join((str(data.index(pt) + 1) + ". " + str(pt) + units) for pt in data))
+        f.write('\n'.join((str(data.index(pt)) + ". " + str(pt) + units) for pt in data))
 
 def main():
     absorptions = getAbsorptions()
