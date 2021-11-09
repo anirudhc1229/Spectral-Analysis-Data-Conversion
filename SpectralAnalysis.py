@@ -34,7 +34,7 @@ def output(data, ch):
         file = "Data/turbidities" + SOL_NUM + ".txt"
         units += "NTU"
     with open(file, 'w') as f:
-        f.write('\n'.join((str(data.index(pt)) + ". " + str(pt) + units) for pt in data))
+        f.write('\n'.join((str(data.index(pt)) + ".\t" + str(pt) + units) for pt in data))
 
 def main():
     absorptions = getAbsorptions()
