@@ -25,16 +25,21 @@ def turbidityConversion(A):
     return T # NTU
 
 def output(data, ch):
-    file = ""
+    formatted = ""
+    unformatted = ""
     units = " "
     if ch == 'c':
-        file = "Data/concentrations" + SOL_NUM + ".txt"
+        formatted = "Data/concentrationsFormatted" + SOL_NUM + ".txt"
+        unformatted = "Data/concentrations" + SOL_NUM + ".txt"
         units += "M"
     if ch == 't':
-        file = "Data/turbidities" + SOL_NUM + ".txt"
+        formatted = "Data/turbiditiesFormatted" + SOL_NUM + ".txt"
+        unformatted = "Data/turbidities" + SOL_NUM + ".txt"
         units += "NTU"
-    with open(file, 'w') as f:
+    with open(formatted, 'w') as f:
         f.write('\n'.join((str(data.index(pt)) + ".\t" + str(pt) + units) for pt in data))
+    with open(unformatted, 'w') as f:
+        f.write('\n'.join(str(pt) for pt in data))
 
 def main():
     absorptions = getAbsorptions()
