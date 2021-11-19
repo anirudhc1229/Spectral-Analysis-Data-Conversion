@@ -1,12 +1,11 @@
 SOL_NUM = input("Enter solution #: ")
+WAVELENGTH = 600 # nm
 
 def getAbsorptions():
     with open("Data/absorptions" + SOL_NUM + ".txt", 'r') as f:
         return [float(A.strip()) for A in f]
 
 def beerLambertConcentration(A): 
-    # wavelength of spectrophotometer light while measuring samples
-    WAVELENGTH = 600 # nm
     # extinction coefficient for e. coli at 600nm
     e = 62720211.1528 # m2mol-1
     # optical path length (width of cuvette)
@@ -16,8 +15,6 @@ def beerLambertConcentration(A):
     return c # M
 
 def turbidityConversion(A):
-    # wavelength of spectrophotometer light while measuring samples
-    WAVELENGTH = 600 # nm
     # optical path length (width of cuvette)
     l = 1 # cm
     # turbidity of solution (SCALED)
