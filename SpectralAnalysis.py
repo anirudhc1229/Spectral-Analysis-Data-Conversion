@@ -1,5 +1,5 @@
 SOL_NUM = input("Enter solution #: ")
-WAVELENGTH = 600 # nm
+WAVELENGTH = input("Enter spectrophotometer wavelength: ") # nm
 
 def getAbsorptions():
     with open("Data/absorptions" + SOL_NUM + ".txt", 'r') as f:
